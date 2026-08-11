@@ -25,8 +25,9 @@ I'm not treating this as a "watch a course and move on" repository. Every concep
 
 The goal is to understand **why every component exists, where it fits, and how the pieces connect** — not just copy LangChain code.
 
-> **Current milestone:** 🟢 Basic RAG System  
-> **Next up:** 🔴 RAG Debugging → Token Budgeting → Hybrid Search → Observability → Production RAG
+> **Current milestone:** 🟡 Retrieval Engineering + Cost Optimization  
+> **Completed recently:** RAG Debugging → Hybrid Search → Model Routing → Semantic Caching → Token Budgeting  
+> **Next up:** 🔴 Observability → LangSmith → RAG Optimization
 
 ---
 
@@ -101,6 +102,14 @@ The course is being turned into a structured engineering roadmap.
 - `RunnablePassthrough`
 - LangChain RAG chains
 - LLM generation
+- Embedding debugging
+- Chunk-size and chunk-overlap experiments
+- BM25 retrieval
+- Vector + BM25 hybrid search
+- Score normalization and hybrid score fusion
+- Model routing
+- Semantic caching
+- Token budgeting
 
 </details>
 
@@ -109,9 +118,9 @@ The course is being turned into a structured engineering roadmap.
 
 | # | Topic | Status |
 |---|---|---|
-| 10 | Debugging RAG Systems | 🔜 |
-| 11 | Token Budgeting | 🔜 |
-| 12 | Hybrid Search | 🔜 |
+| 10 | Debugging RAG Systems | ✅ |
+| 11 | Token Budgeting | ✅ |
+| 12 | Hybrid Search | ✅ |
 | 13 | Observability Introduction | 🔜 |
 | 14 | LangSmith Setup | 🔜 |
 | 15 | RAG Optimization | 🔜 |
@@ -316,7 +325,15 @@ similarity search
       ↓
 metadata filtering
       ↓
+embedding debugging
+      ↓
 hybrid search
+      ↓
+model routing
+      ↓
+semantic caching
+      ↓
+token budgeting
       ↓
 reranking
       ↓
@@ -426,10 +443,14 @@ FOUNDATIONS
 ████████████████████░░░░░░░░░░░░░░░░░░░░
 
 🟢 Basic RAG
-🔴 Debugging RAG ← CURRENT NEXT STEP
-⚪ Hybrid Search
-⚪ Observability
-⚪ Optimization
+🟢 Debugging RAG
+🟢 Hybrid Search
+🟢 Model Routing
+🟢 Semantic Caching
+🟢 Token Budgeting
+🔴 Observability ← CURRENT NEXT STEP
+⚪ LangSmith
+⚪ RAG Optimization
 ⚪ Scaling
 ⚪ Production
 ⚪ Security
@@ -443,6 +464,26 @@ FOUNDATIONS
 > **Understand first. Implement second. Optimize third.**
 
 I'm intentionally not speed-running the course. If a 20-second code section takes an hour to properly understand, that hour is part of the learning.
+
+---
+
+# 🧪 Recent Hands-on Milestones
+
+The repository has now moved beyond the basic RAG pipeline into retrieval debugging and production-oriented cost optimization.
+
+| Concept | Status | What I implemented |
+|---|---|---|
+| Chunking Debugging | ✅ | Chunk-size and overlap experiments |
+| Embedding Debugging | ✅ | Dimensions, vector norms, cosine similarity |
+| Metadata Filtering | ✅ | Metadata-based retrieval filtering |
+| BM25 | ✅ | Keyword-based retrieval |
+| Vector Search | ✅ | Semantic retrieval with embeddings |
+| Hybrid Search | ✅ | BM25 + vector retrieval with normalized score fusion |
+| Model Routing | ✅ | Route simple/complex queries to different Gemini models |
+| Semantic Caching | ✅ | Cache semantically similar queries using embeddings |
+| Token Budgeting | ✅ | Estimate and reject oversized requests |
+
+> These implementations are intentionally educational and lightweight. The goal is to understand the underlying architecture before moving toward production-grade infrastructure.
 
 ---
 
@@ -517,11 +558,16 @@ I'll keep adding milestones here as the repository grows.
 - [x] Implement basic RAG
 - [x] Connect retrieval → context → prompt → LLM
 
-### 🔜 Milestone 02 — Retrieval Engineering
+### 🟢 Milestone 02 — Retrieval Engineering & Cost Optimization
 
-- [ ] Debug retrieval failures
-- [ ] Token budgeting
-- [ ] Hybrid search
+- [x] Debug retrieval failures
+- [x] Debug chunking behavior
+- [x] Understand embedding dimensions and vector norms
+- [x] Token budgeting
+- [x] Hybrid search
+- [x] BM25 + vector score normalization
+- [x] Model routing
+- [x] Semantic caching
 - [ ] Improve retrieval quality
 - [ ] Add observability
 - [ ] Trace RAG pipelines with LangSmith
