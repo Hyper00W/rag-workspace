@@ -2,7 +2,7 @@
 
 > **A hands-on journey from "what is RAG?" → production-grade Retrieval-Augmented Generation systems.**
 
-![Status](https://img.shields.io/badge/status-learning%20in%20progress-orange?style=for-the-badge)
+![Status](https://img.shields.io/badge/status-learning%20complete%20%7C%20production%20next-success?style=for-the-badge)
 ![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![UV](https://img.shields.io/badge/uv-package%20manager-6E56CF?style=for-the-badge)
 ![Chroma](https://img.shields.io/badge/Chroma-vector%20DB-FF6B6B?style=for-the-badge)
@@ -25,9 +25,9 @@ I'm not treating this as a "watch a course and move on" repository. Every concep
 
 The goal is to understand **why every component exists, where it fits, and how the pieces connect** — not just copy LangChain code.
 
-> **Current milestone:** 🟡 Retrieval Engineering + Cost Optimization  
-> **Completed recently:** RAG Debugging → Hybrid Search → Model Routing → Semantic Caching → Token Budgeting  
-> **Next up:** 🔴 Observability → LangSmith → RAG Optimization
+> **Learning milestone:** ✅ RAG Foundations → Advanced Retrieval → Cost Optimization → Observability → Production Concepts  
+> **Completed:** Hands-on implementations, experiments, LangSmith tracing, advanced retrieval patterns, and production architecture concepts  
+> **Next:** 🚀 Build a separate production-grade RAG project
 
 ---
 
@@ -121,9 +121,9 @@ The course is being turned into a structured engineering roadmap.
 | 10 | Debugging RAG Systems | ✅ |
 | 11 | Token Budgeting | ✅ |
 | 12 | Hybrid Search | ✅ |
-| 13 | Observability Introduction | 🔜 |
-| 14 | LangSmith Setup | 🔜 |
-| 15 | RAG Optimization | 🔜 |
+| 13 | Observability Introduction | ✅ |
+| 14 | LangSmith Setup | ✅ |
+| 15 | RAG Optimization | ✅ |
 
 Focus:
 
@@ -142,12 +142,12 @@ How do we debug a RAG pipeline?
 
 | # | Topic | Status |
 |---|---|---|
-| 16 | Scaling RAG Systems | 🔜 |
-| 17 | Real Costs of Vector Search | 🔜 |
-| 18 | Production Hosting | 🔜 |
-| 19 | Supabase + PGVector | 🔜 |
-| 20 | Three Pillars of Production Visibility | 🔜 |
-| 21 | Production Project | 🔜 |
+| 16 | Scaling RAG Systems | ✅ |
+| 17 | Real Costs of Vector Search | ✅ |
+| 18 | Production Hosting | ✅ |
+| 19 | Supabase + PGVector | ✅ |
+| 20 | Three Pillars of Production Visibility | ✅ |
+| 21 | Production Project | 🚀 Next — separate project |
 
 Focus:
 
@@ -158,6 +158,19 @@ Focus:
 - hosting
 - production monitoring
 - real-world deployment
+
+</details>
+
+<details>
+<summary><b>🟣 COMPLETED — Advanced Retrieval Techniques</b></summary>
+
+| Technique | Status | What I implemented |
+|---|---|---|
+| Multi-Query Retrieval | ✅ | Generate multiple query perspectives before retrieval |
+| Contextual Compression | ✅ | Use Gemini to keep query-relevant information from retrieved context |
+| Ensemble Retrieval | ✅ | Combine vector retrieval with BM25 using weighted ranking |
+| Parent Document Retrieval | ✅ | Search small child chunks while returning larger parent context |
+| Advanced RAG Pipeline | ✅ | Combine retrieval, compression, and generation |
 
 </details>
 
@@ -278,10 +291,53 @@ Answer
 | 🗄️ ChromaDB | Vector storage + similarity search |
 | 📄 Document loaders | Bringing external knowledge into the pipeline |
 | ✂️ Text Splitters | Chunking documents |
-| 🧪 LangSmith | Upcoming observability |
-| 🐘 PostgreSQL / PGVector | Upcoming production vector storage |
-| 🕸️ LangGraph | Upcoming agentic RAG |
-| 🚀 FastAPI | Upcoming production API |
+| 🧪 LangSmith | LLM observability, tracing, debugging, and run inspection |
+| 🐘 PostgreSQL / PGVector | Production-oriented relational + vector storage |
+| 🕸️ LangGraph | Future agentic RAG work |
+| 🚀 FastAPI | Production API architecture for the next project |
+
+---
+
+# 🏭 Production Concepts Learned
+
+### Observability
+
+Production RAG needs visibility into three complementary layers:
+
+```text
+Logs
+  → What happened?
+
+Metrics
+  → How often / how much / how fast?
+
+Traces
+  → What happened across one complete request?
+```
+
+With LangSmith, I learned how to trace LLM/RAG runs, inspect inputs and outputs, debug latency and failures, and understand individual steps inside a pipeline.
+
+### Supabase + PGVector
+
+Chroma was used for learning local vector retrieval. For a production application, PostgreSQL + `pgvector` can keep relational application data and embeddings/vector-search data in the same database architecture.
+
+Supabase provides a managed PostgreSQL environment that can be used for this setup.
+
+I learned the setup flow and the role of database credentials, Supabase, and PGVector. I intentionally did **not** migrate this entire learning repository just to replace Chroma. That implementation belongs in the production project where the architecture actually requires it.
+
+### Production visibility
+
+The production mindset is:
+
+```text
+Logging + Metrics + Traces
+             ↓
+       Observability
+             ↓
+ Debugging + Reliability + Cost Control
+```
+
+Other production concepts covered include scaling, vector-search costs, hosting, retrieval optimization, and the trade-offs involved when moving from a local RAG demo to a real application.
 
 ---
 
@@ -436,11 +492,11 @@ Eventually:
 
 # 📈 Progress
 
-### Current position
+### Final learning position
 
 ```text
 FOUNDATIONS
-████████████████████░░░░░░░░░░░░░░░░░░░░
+████████████████████████████████████████
 
 🟢 Basic RAG
 🟢 Debugging RAG
@@ -448,15 +504,18 @@ FOUNDATIONS
 🟢 Model Routing
 🟢 Semantic Caching
 🟢 Token Budgeting
-🔴 Observability ← CURRENT NEXT STEP
-⚪ LangSmith
-⚪ RAG Optimization
-⚪ Scaling
-⚪ Production
-⚪ Security
-⚪ Agentic RAG
-⚪ GraphRAG
-⚪ Multimodal RAG
+🟢 Multi-Query Retrieval
+🟢 Contextual Compression
+🟢 Parent Document Retrieval
+🟢 Ensemble Retrieval
+🟢 LangSmith
+🟢 Observability
+🟢 RAG Optimization
+🟢 Scaling / Vector Search Cost Concepts
+🟢 Supabase + PGVector Concepts
+🟢 Production Architecture Concepts
+
+🚀 NEXT: Build a real production RAG application
 ```
 
 ### Learning rule
@@ -568,19 +627,58 @@ I'll keep adding milestones here as the repository grows.
 - [x] BM25 + vector score normalization
 - [x] Model routing
 - [x] Semantic caching
-- [ ] Improve retrieval quality
-- [ ] Add observability
-- [ ] Trace RAG pipelines with LangSmith
+- [x] Improve retrieval quality
+
+### 🟢 Milestone 03 — Advanced RAG & Production Concepts
+
+- [x] Multi-Query Retrieval
+- [x] Contextual Compression
+- [x] Ensemble / Hybrid Retrieval
+- [x] Parent Document Retrieval
+- [x] Combined advanced RAG pipeline
+- [x] Logging, metrics, and traces
+- [x] LangSmith setup and tracing
+- [x] RAG optimization concepts
+- [x] Scaling and vector-search cost concepts
+- [x] Production hosting concepts
+- [x] Supabase + PGVector architecture
+- [x] Three pillars of production visibility
+- [x] Push relevant implementations and experiments
+
+### 🚀 Milestone 04 — Production Build
+
+- [ ] Design a real-world RAG application
+- [ ] Use production database/vector infrastructure where appropriate
+- [ ] Add authentication and security
+- [ ] Add evaluation and testing
+- [ ] Add production observability
+- [ ] Deploy and monitor the application
 
 ---
 
-## 🚧 Status
+## ✅ Status — Learning Phase Complete
 
-**This repository is actively being built.**
+**This repository is now closed as a learning project.**
 
-New concepts, experiments, mistakes, fixes, and production patterns will be added as I progress.
+The tutorial has been completed hands-on. The relevant implementations and experiments have been pushed, and the next step is a separate production project rather than adding more tutorial code here.
 
-> **Not a finished project. A record of becoming better at building RAG systems.**
+```text
+RAG Foundations
+      ↓
+Retrieval Engineering
+      ↓
+Cost Optimization
+      ↓
+Advanced Retrieval
+      ↓
+LangSmith Observability
+      ↓
+Production Architecture Concepts
+      ↓
+🚀 Production Project
+```
+
+> **From understanding RAG → to engineering a production RAG system.**
 
 ---
 
