@@ -13,7 +13,7 @@
 
 ## ⚡ What is this repository?
 
-This is my **RAG learning laboratory**.
+This is my **RAG learning laboratory**
 
 I'm not treating this as a "watch a course and move on" repository. Every concept is being:
 
