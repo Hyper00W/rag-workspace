@@ -21,7 +21,7 @@ I'm not treating this as a "watch a course and move on" repository. Every concep
 - 💻 implemented in code
 - 🔬 experimented with
 - 📝 documented for future reference
-- 🚀 gradually pushed toward production
+- 🚀 gradually pushed toward production.
 
 The goal is to understand **why every component exists, where it fits, and how the pieces connect** — not just copy LangChain code.
 
